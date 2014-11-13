@@ -1,0 +1,143 @@
+<section class="wrapper">
+  <h1>Private vs. Protected</h1>
+
+  <main class='group'>
+    <section class='code-left'>
+      <article class='public'><%= @public %></article>
+      <article class='private'><%= @private %></article>
+      <article class='protected'><%= @protected %></article>
+    </section>
+
+    <script charset="utf-8">
+      $(function () {
+        var $container = $('.annotation-right');
+        var privateOffset =
+          $('section.private').offset().top - $container.offset().top;
+        $('article.private').css({ top: privateOffset + 10 + 'px' });
+
+        var protectedOffset =
+          $('section.protected').offset().top - $container.offset().top;
+        $('article.protected').css({ top: protectedOffset + 10 + 'px' });
+      });
+    </script>
+
+    <aside class='annotation-right'>
+      <section class='initialize'>
+        <h3>Public Methods</h3>
+        <pre class='snippet'>
+          sennacy = Cat.new("Sennacy")</pre>
+
+        <p>
+          We know public methods. We can call them explicitly on any instance of the class.
+        </p>
+
+        <pre class='snippet'>
+          sennacy.meow #=> "meow"
+          sennacy.say_name #=> "meow"; "Sennacy"</pre>
+      </section>
+
+      <section class='private'>
+        <h3>Private Methods</h3>
+        <pre class='snippet'>
+          conz = RealWorldAdult.new
+          conz.pay_taxes #=> "sob uncontrollably"</pre>
+
+        <p>
+          Here, <code>RealWorldAdult#pay_taxes</code> is an instance method, so we can call it on any instance as well. However, internally, the instance is calling PRIVATE methods in order to execute the method. We made these particular methods private because they're our secret methods that we don't need outsiders to be aware of. Only the instance can call them internally.
+        </p>
+
+        <pre class='snippet'>
+          conz.send_government(1000000) #=> ERROR
+          conz.cry #=> ERROR</pre>
+
+        <p>
+          We shouldn't be able to coerce <code>conz.send_government(1000000)</code>, but if we call <code>conz.pay_taxes</code>, she'll execute <code>RealWorldAdult#send_government</code>. Likewise, we shouldn't be able to just call <code>conz.cry</code> and make her cry on cue, but if we call <code>RealWorldAdult#pay_taxes</code> on her, internally, she'll cry.
+        </p>
+      </section>
+
+      <section class='protected'>
+        <h3>Protected Methods</h3>
+        <pre class='snippet'>
+          bryce = Teenager.new
+          ashley = Teenager.new
+          bryce.meet(ashley)</pre>
+
+        <p>
+          This time, this method is calling <code>Teenager#phone_number</code>. It has the properties of a private method because a teenager doesn't want this method to be exposed to the outside world. However, in this case, we need to call this method on OTHER instances of the same class. If <code>Teenager#phone_number</code> was private, we wouldn't be able to call <code>Teenager#phone_number</code> on <code>self</code> or <code>other_teen</code> at all. Therefore, the method is PROTECTED.
+        </p>
+
+        <pre class='snippet'>
+          bryce.phone_number #=> ERROR
+          ashley.phone_number #=> ERROR</pre>
+
+        <p>
+          All the teenagers whom Bryce meet can access his <code>phone_number</code>, but no one outside of the class should be able to see Bryce's or Ashley's <code>phone_number</code>.
+        </p>
+      </section>
+    </aside>
+  </main>
+
+  <article class='summary'>
+    <h2>Summary</h2>
+
+    <ul>
+      <li>
+        <strong>Private:</strong>
+        secret methods that each instance uses internally (most commonly helper methods); cannot be explicitly called
+      </li>
+
+      <li>
+        <strong>Protected:</strong>
+        secret methods that only other instances of the same class can explicitly call when they're inside of the class
+      </li>
+    </ul>
+
+    <aside class='bonus'>
+      <h3>
+        Bonus tidbit:
+        Explicit Receivers vs. Implicit Receivers
+      </h3>
+
+      <ul class='group'>
+        <li>
+          <strong>Explicit Receiver</strong>
+          The object that a method is called on
+<pre class='snippet'>
+  class Cat
+    def initialize
+      self.meow
+      # explicit receiver => self
+    end
+
+    def meow
+      ...
+    end
+  end
+</pre>
+        </li>
+
+        <li>
+          <strong>Implicit Receiver</strong>
+          The inferred object that a method is a called on
+<pre class='snippet'>
+  class Cat
+    def initialize
+      meow
+      # no explicit receiver!
+      # implicit receiver => self
+    end
+
+    def meow
+      ...
+    end
+  end
+</pre>
+        </li>
+      </ul>
+
+      <footer>
+        Private methods <em>cannot have an explicit receiver</em>, while protected methods are private methods that can take an explicit receiver.
+      </footer>
+    </aside>
+  </article>
+</section>

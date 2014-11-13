@@ -1,0 +1,19 @@
+class RealWorldAdult
+  attr_accessor :wallet
+
+  ...
+
+  def pay_taxes
+    send_government(1000000) # PRIVATE
+    cry # PRIVATE
+  end
+
+  private
+  def send_government(money)
+    self.wallet -= money
+  end
+
+  def cry
+    "sob uncontrollably"
+  end
+end

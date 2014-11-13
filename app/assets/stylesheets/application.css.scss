@@ -1,0 +1,186 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+html, body, h1, h2, h3 section, article, aside, pre, p, code, strong, footer, header {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  display: block;
+  font-size: 40px;
+  font-family: 'Abril Fatface', sans-serif;
+}
+
+h3 {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
+h3 {
+  font-size: 18px;
+  font-family: 'Abril Fatface', monospace;
+}
+
+pre {
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+section.wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin: 40px auto;
+  margin-bottom: 100px;
+}
+
+header {
+  display: block;
+  margin-top: 200px;
+  margin-left: 100px;
+
+  h2 {
+    font-size: 30px;
+  }
+}
+
+main {
+
+}
+
+pre.snippet {
+  margin: 10px 0;
+  padding: 15px 0;
+  font-size: 14px;
+  background: #FAF3DD;
+}
+
+section.code-left {
+  position: relative;
+  float: left;
+  width: 40%;
+  min-width: 600px;
+  padding: 20px 40px;
+  font-size: 16px;
+  box-sizing: border-box;
+
+  article {
+    position: absolute;
+  }
+}
+
+aside.annotation-right {
+  float: left;
+  width: 60%;
+  max-width: 650px;
+  padding: 20px 40px;
+  font-size: 18px;
+  box-sizing: border-box;
+
+  section {
+    margin-bottom: 100px;
+  }
+
+  p {
+    margin: 20px 0;
+    line-height: 1.6;
+  }
+
+  code {
+    display: inline;
+    padding: 3px;
+    font-family: monospace;
+    font-size: 16px;
+    color: #333;
+    background: #E0E0E0;
+    border-radius: 4px;
+  }
+}
+
+article.summary {
+  display: block;
+  width: 60%;
+  max-width: 800px;
+  margin: auto;
+  font-size: 20px;
+  line-height: 1.6;
+
+  h2 {
+    font-family: 'Abril Fatface', monospace;
+    font-size: 30px;
+  }
+
+  strong {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  ul > li {
+    margin: 10px 0;
+  }
+}
+
+aside.bonus {
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #eee;
+  box-sizing: border-box;
+
+  h3 {
+    display: block;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+    width: 100%;
+    margin: 30px 0;
+    padding: 0;
+  }
+
+  ul > li {
+    display: block;
+    float: left;
+    width: 50%;
+    margin: 0;
+    padding: 0 30px;
+    font-size: 16px;
+    box-sizing: border-box;
+
+    strong {
+      display: block;
+    }
+
+    pre {
+
+    }
+  }
+}

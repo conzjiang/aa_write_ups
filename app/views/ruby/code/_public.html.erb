@@ -1,0 +1,16 @@
+class Cat
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def meow
+    puts "meow"
+  end
+
+  def say_name
+    self.meow
+    puts "#{ self.name }"
+  end
+end
