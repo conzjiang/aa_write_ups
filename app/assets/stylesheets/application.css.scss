@@ -14,7 +14,7 @@
  *= require_self
  */
 
-html, body, h1, h2, h3 section, article, aside, pre, p, code, strong, footer, header {
+html, body, h1, h2, h3, section, article, aside, pre, p, code, strong, footer, header {
   margin: 0;
   padding: 0;
   border: 0;
@@ -28,16 +28,12 @@ body {
 
 h1 {
   display: block;
-  font-size: 40px;
+  font-size: 30px;
   font-family: 'Abril Fatface', sans-serif;
+  text-align: center;
 }
 
-h3 {
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-}
-
-h3 {
+h2 {
   font-size: 18px;
   font-family: 'Abril Fatface', monospace;
 }
@@ -55,60 +51,39 @@ pre {
 
 section.wrapper {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1000px;
   margin: 40px auto;
   margin-bottom: 100px;
 }
 
-header {
-  display: block;
-  margin-top: 200px;
-  margin-left: 100px;
-
-  h2 {
-    font-size: 30px;
-  }
-}
-
 main {
-
+  width: 100%;
 }
 
-pre.snippet {
-  margin: 10px 0;
-  padding: 15px 0;
-  font-size: 14px;
-  background: #FAF3DD;
-}
-
-section.code-left {
-  position: relative;
-  float: left;
-  width: 40%;
-  min-width: 600px;
-  padding: 20px 40px;
-  font-size: 16px;
-  box-sizing: border-box;
+section.method {
+  margin: 30px 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
 
   article {
-    position: absolute;
+    margin: 20px;
   }
-}
 
-aside.annotation-right {
-  float: left;
-  width: 60%;
-  max-width: 650px;
-  padding: 20px 40px;
-  font-size: 18px;
-  box-sizing: border-box;
+  article.code {
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 20px;
+  }
 
-  section {
-    margin-bottom: 100px;
+  article.description {
+    padding: 20px 30px;
   }
 
   p {
     margin: 20px 0;
+    font-size: 18px;
     line-height: 1.6;
   }
 
@@ -118,16 +93,52 @@ aside.annotation-right {
     font-family: monospace;
     font-size: 16px;
     color: #333;
-    background: #E0E0E0;
+    background: #eee;
     border-radius: 4px;
   }
 }
 
-article.summary {
+pre.snippet {
+  margin: 10px;
+  padding: 15px;
+  font-size: 14px;
+  background: #FAF3DD;
+}
+
+@media (min-width: 800px) {
+  h1 {
+    margin: 0 35px;
+    font-size: 40px;
+    text-align: left;
+  }
+
+  section.method {
+    margin: 0;
+    padding: 20px;
+
+    article {
+      margin: 0;
+    }
+
+    article.code {
+      float: left;
+      padding: 10px;
+      background: none;
+    }
+
+    article.description {
+      float: right;
+      width: calc(100% - 440px);
+      padding: 10px;
+    }
+  }
+}
+
+section.summary {
   display: block;
-  width: 60%;
+  width: 80%;
   max-width: 800px;
-  margin: auto;
+  margin: 30px auto;
   font-size: 20px;
   line-height: 1.6;
 
@@ -136,26 +147,27 @@ article.summary {
     font-size: 30px;
   }
 
-  strong {
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
   ul > li {
     margin: 10px 0;
   }
 }
 
+strong {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
 aside.bonus {
-  width: 100%;
-  margin: auto;
-  padding: 20px;
+  margin: 30px;
+  padding: 30px;
+  font-size: 20px;
   border: 1px solid #eee;
   box-sizing: border-box;
 
   h3 {
     display: block;
     margin: 20px 0;
+    font-family: "Abril Fatface", sans-serif;
     text-align: center;
   }
 
@@ -168,19 +180,25 @@ aside.bonus {
 
   ul > li {
     display: block;
-    float: left;
-    width: 50%;
-    margin: 0;
-    padding: 0 30px;
+    width: calc(100% - 60px);
+    margin: 30px;
     font-size: 16px;
     box-sizing: border-box;
 
     strong {
       display: block;
+      margin-bottom: 5px;
     }
+  }
 
-    pre {
+  @media (min-width: 800px) {
+    margin: 50px auto;
 
+    ul > li {
+      float: left;
+      width: 50%;
+      margin: 0;
+      padding: 0 30px;
     }
   }
 }

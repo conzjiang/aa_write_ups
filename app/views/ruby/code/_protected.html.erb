@@ -1,29 +1,18 @@
-class Teenager
-  attr_reader :gender, :contacts
-
+class PopularKid
   ...
 
-  def say_hey
-    "hey"
-  end
+  def meet(popular_kid)
+    self.say_hey # PROTECTED
+    popular_kid.say_hey # PROTECTED
 
-  def meet(other_teen)
-    self.say_hey
-    other_teen.say_hey
-
-    self.contacts << other_teen.phone_number # PROTECTED
-    other_teen.contacts << self.phone_number # PROTECTED
-    # This doesn't error out because you're inside the
-    # class. If you try to call this outside, that's
+    # This doesn't error out because
+    # you're inside the class. If you
+    # try to call this outside, that's
     # another story.
   end
 
   protected
-  def phone_number
-    if self.gender == :female
-      @fake_phone_number
-    else
-      @phone_number
-    end
+  def say_hey
+    "hey"
   end
 end
