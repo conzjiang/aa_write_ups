@@ -14,7 +14,7 @@
  *= require_self
  */
 
-html, body, h1, h2, h3, section, article, aside, pre, p, code, strong, footer, header {
+html, body, h1, h2, h3, section, article, aside, pre, p, code, strong, footer, header, ul, li {
   margin: 0;
   padding: 0;
   border: 0;
@@ -42,11 +42,19 @@ header {
   display: block;
   width: 100%;
   position: absolute;
-  top: 50%;
+  top: 30%;
   text-align: center;
 
   h2 {
     font-family: sans-serif;
+  }
+
+  ul {
+    padding-left: 30px;
+  }
+
+  li {
+    margin: 10px 0;
   }
 
   @media (min-width: 800px) {
