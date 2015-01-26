@@ -38,6 +38,28 @@ h2 {
   font-family: 'Abril Fatface', monospace;
 }
 
+header {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+
+  h2 {
+    font-family: sans-serif;
+  }
+
+  @media (min-width: 800px) {
+    width: auto;
+    left: 100px;
+    text-align: left;
+
+    h1 {
+      margin: 0;
+    }
+  }
+}
+
 pre {
   font-family: monospace;
   font-size: 16px;
