@@ -1,0 +1,49 @@
+.heroku {
+  h1 {
+    text-align: center;
+  }
+}
+
+ol {
+  counter-reset: li;
+  list-style: none;
+
+  li {
+    max-width: 660px;
+    margin: 75px auto;
+    padding: 0 10px;
+  }
+
+  h2:before {
+    content: counter(li);
+    counter-increment: li;
+    margin-right: 10px;
+    padding: 8px 18px 8px 20px;
+    background: #eee;
+    border-radius: 30px;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  p {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+
+  @media (min-width: 800px) {
+    h2:before {
+      margin-right: 15px;
+      padding: 10px 21px 10px 24px;
+    }
+
+    h2 {
+      font-size: 30px;
+    }
+  }
+}
+

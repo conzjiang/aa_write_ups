@@ -14,7 +14,7 @@
  *= require_tree .
  */
 
-html, body, h1, h2, h3, section, article, aside, pre, p, code, strong, footer, header, ul, li {
+html, body, h1, h2, h3, section, article, aside, pre, p, code, strong, footer, header, ul, ol, li {
   margin: 0;
   padding: 0;
   border: 0;
@@ -94,6 +94,24 @@ section.wrapper {
 
 main {
   width: 100%;
+}
+
+.summary {
+  display: block;
+  width: 80%;
+  max-width: 800px;
+  margin: 30px auto;
+  font-size: 20px;
+  line-height: 1.6;
+
+  h2 {
+    font-family: 'Abril Fatface', monospace;
+    font-size: 30px;
+  }
+
+  ul > li {
+    margin: 10px 0;
+  }
 }
 
 p {

@@ -1,67 +1,67 @@
-<h1>Deploying your Node.js app to Heroku</h1>
+<section class="heroku wrapper">
+  <h1>Deploying your Node.js app to Heroku</h1>
 
-<article>
-  Heroku has <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction">a really good step-by-step guide</a> on this, but it's super granular, including everything starting from how to make a Node.js app. Since we all know those steps, I've isolated the extra steps from that point for Node.js.
-</article>
+  <article class="summary">
+    Heroku has <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction">a really good step-by-step guide</a> on this, but it's super granular,  starting from how to make a Node.js app. Since we all know those steps, I've isolated the extra steps needed for Node.js.
+  </article>
 
-<ol>
-  <li>
-    <h2>Make sure you have a package.json file!</h2>
+  <ol>
+    <li>
+      <h2>Make sure you have a package.json file!</h2>
 
-    <p>
-      I shouldn't have to include this step, since yall should always be initializing your Node apps with a package.json file, but just in case you haven't, <code>npm init</code>! This file indicates to Heroku that you're running a Node app.
-    </p>
-  </li>
+      <p>
+        Yall should always be initializing your Node apps with a <code>package.json</code> file, but just in case you haven't, <code>npm init</code>! This file indicates to Heroku that you're running a Node app.
+      </p>
+    </li>
 
-  <li>
-    <h2>Listen to your Heroku port.</h2>
+    <li>
+      <h2>Listen to your Heroku port.</h2>
 
-    <p>
-      In your server file, set a port variable as follows:
-    </p>
-
-<pre class="snippet">
-  var port = process.env.PORT || 8000 // replace with the port of your choice!
-</pre>
-
-    <p>
-      Then have your app listen to that variable because you want your server to listen to requests from whichever port Heroku assigns your app when it's running live, and default to your port of choice when <code>process.env.PORT</code> isn't defined (aka in development).
-    </p>
-  </li>
-
-  <li>
-    <h2>Create a Procfile.</h2>
-
-    <p>
-      Add a Procfile to the root of your project. It's just an extension-less text file titled 'Procfile'. This tells Heroku how to start your app. Include the following in the file:
-    </p>
+      <p>
+        In your server file, set a port variable as follows:
+      </p>
 
 <pre class="snippet">
-  web: node server_file.js
-</pre>
+  var port = process.env.PORT || 8000;
+  // replace `8000` with the port of your choice!</pre>
 
-    <p>
-      Replace <code>server_file.js</code> with the name of the file where your server starts (usually <code>index.js</code> or <code>app.js</code>). Basically, the part after the 'web' should be the command you run when you start your Node server in the terminal.
-    </p>
-  </li>
+      <p>
+        Then have your app listen to that variable because you want your server to listen to requests from whichever port Heroku assigns your app when it's running live, and default to your port of choice when <code>process.env.PORT</code> isn't defined (aka in development).
+      </p>
+    </li>
 
-  <li>
-    <h2>Push to Heroku.</h2>
+    <li>
+      <h2>Create a Procfile.</h2>
 
-    <p>You got this.</p>
-  </li>
-
-  <li>
-    <h2>Run the Procfile command.</h2>
-
-    <p>Run the following command from your terminal after you push.</p>
+      <p>
+        Add a Procfile to the root of your project. It's just an extension-less text file titled <code>Procfile</code>. This tells Heroku how to start your app. Include the following in the file:
+      </p>
 
 <pre class="snippet">
-  heroku ps:scale web=1
-</pre>
+  web: node server_file.js</pre>
 
-    <p>
-      This makes sure that Heroku runs the web process you defined in your Procfile.
-    </p>
-  </li>
-</ol>
+      <p>
+        Replace <code>server_file.js</code> with the name of the file where your server starts (usually <code>index.js</code> or <code>app.js</code>). Basically, the part after the 'web' should be the command you run when you start your Node server in the terminal.
+      </p>
+    </li>
+
+    <li>
+      <h2>Push to Heroku.</h2>
+
+      <p>You got this.</p>
+    </li>
+
+    <li>
+      <h2>Scale up your app.</h2>
+
+      <p>Run the following command from your terminal after you push.</p>
+
+<pre class="snippet">
+  heroku ps:scale web=1</pre>
+
+      <p>
+        This makes sure that one instance of your app is running via the web process you defined in your Procfile. You only ever need to run this command once on your first push.
+      </p>
+    </li>
+  </ol>
+</section>
