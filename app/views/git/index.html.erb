@@ -1,0 +1,122 @@
+<section class="wrapper">
+  <h1>Git</h1>
+
+  <section class="quick-links">
+    <h3>Quick Links</h3>
+    <ul>
+      <li><a href="#">Initializing your project</a></li>
+      <li><a href="#">Committing changes</a></li>
+      <li><a href="#"></a></li>
+    </ul>
+  </section>
+
+
+  <form>
+    <input type="text">
+    <button>Search</button>
+  </form>
+
+  <ul>
+    <li id="init">
+      <h2>git init</h2>
+
+      <p>
+        Create .git directory. Always run this command first when starting any project!
+      </p>
+    </li>
+
+    <li id="config">
+      <h2>git config --local user.name ______</h2>
+      <h2>git config --local user.email ______</h2>
+
+      <p>
+        Configure the local settings of your project to attribute it to you and your pair. Leaving off the <code>--local</code> flag configures it globally for every project on the computer!
+      </p>
+    </li>
+
+    <li id="status">
+      <h2>git status</h2>
+
+      <p>
+        Check which files are and aren't staged.
+      </p>
+
+      <p>Check which files have and haven't been <code>git add</code>ed.</p>
+    </li>
+
+    <li id="diff">
+      <h2>git diff</h2>
+      <p>
+        See the untracked changes played on top of the staged files.
+      </p>
+
+      <p>
+        See the differences between the last commit and the files now.
+      </p>
+
+      <h3>git diff ______</h3>
+      <p>
+        See the untracked changes of a particular file.
+      </p>
+
+      <p>See the differences of a particular file.</p>
+    </li>
+
+    <li id="add">
+      <h2>git add -A</h2>
+      <p>
+        Stage all unstaged and untracked files.
+      </p>
+
+      <p>Add all files (new files and deletions) you want to commit.</p>
+
+      <h3>git add .</h3>
+      <p>
+        Only stage modifications to existing files.
+      </p>
+
+      <p>Only add the files which have been changed (excludes new files and deletions).</p>
+
+      <h3>git add ______</h3>
+      <p>
+        Add a specific file to the staging block.
+      </p>
+
+      <p>Add one file to be committed.</p>
+    </li>
+
+    <li id="commit">
+      <h2>git commit -m "______"</h2>
+
+      <p>
+        Commit your changes and append one sentence summarizing them.
+      </p>
+
+      <p>Commit your changes with a message describing the changes.</p>
+    </li>
+
+    <li id="reset-head">
+      <h2>git reset HEAD ______</h2>
+
+      <p>
+        Unstage a file you added/staged BEFORE COMMITTING.
+      </p>
+
+      <p>Un-add a file you added but didn't commit yet.</p>
+    </li>
+
+    <li id="checkout">
+      <h2>git checkout -A</h2>
+      <p>
+        Revert all unstaged changes back to the way the last commit was.
+      </p>
+
+      <p>Undo all changes that haven't been <code>git add</code>ed yet (including new files and deletions).</p>
+
+      <h3>git checkout .</h3>
+      <p>
+        Only undo changes made to existing files (leaves new files and deleted files alone).
+      </p>
+    </li>
+  </ul>
+</section>

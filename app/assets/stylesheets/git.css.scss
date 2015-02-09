@@ -1,0 +1,74 @@
+.git {
+  ol.summary {
+    width: auto;
+    display: inline-block;
+    margin: 30px 50px;
+    padding: 20px 40px;
+    padding-left: 50px;
+    background: #eee;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .steps {
+    width: 90%;
+    margin: 30px auto;
+
+    li {
+      margin: 75px 0;
+      padding: 0 10px;
+    }
+
+    li:first-child {
+      margin-top: 0;
+    }
+
+    h2 {
+      font-family: monospace;
+      font-size: 30px;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    .or {
+      text-transform: uppercase;
+      display: block;
+      margin: 40px 0;
+    }
+
+    .or:before {
+      content: "or";
+    }
+  }
+}
+
+@-webkit-keyframes highlight {
+  0% {
+    transition: background 0.5s;
+    background: none;
+  }
+
+  25% {
+    background: rgb(255, 255, 208);
+  }
+
+  50% {
+    background: yellow;
+  }
+
+  75% {
+    background: rgb(254, 254, 149);
+  }
+
+  100% {
+    background: rgb(255, 255, 208);
+  }
+}
+
+.highlight {
+  -webkit-animation: highlight 1s;
+}

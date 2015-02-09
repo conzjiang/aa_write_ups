@@ -1,0 +1,69 @@
+<section class="wrapper git">
+  <h1>Committing Changes</h1>
+
+  <ol class="summary">
+    <li><a href="#status">git status</a></li>
+    <li><a href="#diff">git diff</a></li>
+    <li><a href="#add">git add ___</a></li>
+    <li><a href="#commit">git commit -m "____"</a></li>
+    <li><a href="#push">git push origin master</a></li>
+  </ol>
+
+  <ol class="steps">
+    <li>
+      <h2 id="status">git status</h2>
+
+      <p>Check which files have changes in them.</p>
+    </li>
+
+    <li>
+      <h2 id="diff">git diff</h2>
+
+      <p>See the changes you've made.</p>
+    </li>
+
+    <li>
+      <h2 id="add">git add -A</h2>
+      <p>
+        Add all files to be committed (includes new files and deletions).
+      </p>
+
+      <strong class="or"></strong>
+
+      <h2>git add .</h2>
+      <p>
+        Add the files that have changes made to them (excludes new files and deletions).
+      </p>
+
+      <strong class="or"></strong>
+
+      <h2>git add <em>path/to/file</em></h2>
+      <p>
+        Pick and choose the files you want to add by adding them via filepaths one by one.
+      </p>
+    </li>
+
+    <li>
+      <h2 id="commit">git commit -m "<em>message</em>"</h2>
+      <p>Commit the files that have been added, with a message describing the changes.</p>
+    </li>
+
+    <li>
+      <h2 id="push">git push origin master</h2>
+      <p>Push when you're ready to publish to your Github.</p>
+    </li>
+  </ol>
+</section>
+
+<script>
+  $(function () {
+    $("a").on("click", function (e) {
+      var step = this.hash;
+      $(step).addClass("highlight");
+
+      $(step).on("webkitAnimationEnd", function () {
+        $(step).removeClass("highlight");
+      });
+    });
+  });
+</script>
