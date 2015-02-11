@@ -1,0 +1,61 @@
+<section class="wrapper git">
+  <h1>Fixing Commits</h1>
+
+  <article class="context">
+    <h3>Context</h3>
+    <p>You want to alter the contents of your last commit.</p>
+
+    <p>
+      If you're only trying to change your previous commit message, NOT the files of the commit, see <a href="/git#commit"><code>git commit --amend</code></a>.
+    </p>
+  </article>
+
+  <ol class="summary">
+    <li><a href="#reset">git reset --soft HEAD~1</a></li>
+    <li><a href="#edit">(edit files)</a></li>
+    <li><a href="#commit">git commit -C ORIG_HEAD</a></li>
+  </ol>
+
+  <ol class="steps">
+    <li id="reset">
+      <h2>git reset --soft HEAD~1</h2>
+
+      <p>
+        Un-commit the last commit.
+      </p>
+    </li>
+
+    <li id="add">
+      <h2>git add / git reset HEAD</h2>
+      <p>
+        Change files. <a href="/git#add">Add new changes</a> or <a href="/git#reset">undo the files you've added</a>.
+      </p>
+
+<pre class="snippet">
+  Example:
+
+  > git reset HEAD path/to/my_file
+  >
+  > ...(make changes to my_file)
+  >
+  > git add path/to/my_file
+</pre>
+    </li>
+
+    <li id="commit">
+      <h2>git commit -C ORIG_HEAD</h2>
+      <p>
+        Re-commit the files with the same commit message.
+      </p>
+
+      <strong class="or"></strong>
+
+      <h2>git commit -c ORIG_HEAD</h2>
+      <p>
+        Re-commit the files and edit the commit message.
+      </p>
+    </li>
+  </ol>
+</section>
+
+<%= javascript_include_tag "git" %>
