@@ -9,6 +9,6 @@ class GitController < ApplicationController
 
   private
   def topic
-    params[:id]
+    params[:id].gsub("-", "_")
   end
 end
