@@ -1,4 +1,27 @@
 .git {
+  position: relative;
+
+  .back {
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .back:before {
+    content: "←";
+    display: block;
+    padding: 2px 5px;
+    font-size: 30px;
+  }
+
+  .back:hover:before {
+    padding: 0 3px;
+    border: 2px solid blue;
+    border-radius: 20px;
+  }
+
   header {
     margin: 10px 50px;
 
@@ -21,12 +44,6 @@
       font-size: 14px;
       font-style: italic;
     }
-
-    .back {
-      display: inline-block;
-      margin: 10px 0;
-      font-size: 14px;
-    }
   }
 
   ol.summary {
@@ -42,17 +59,21 @@
     color: inherit;
   }
 
+  a:hover {
+    color: blue;
+  }
+
   .steps {
     margin-left: 40px;
 
     @media (min-width: 600px) {
       width: 90%;
-      margin: 30px auto;
+      margin: 30px 20px;
     }
 
     li {
       margin: 75px 0;
-      padding: 0 10px;
+      padding: 0 30px;
     }
 
     li:first-child {
