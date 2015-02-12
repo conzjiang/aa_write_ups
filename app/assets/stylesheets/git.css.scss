@@ -1,16 +1,31 @@
 .git {
-  .context {
-    margin: 30px 50px;
+  header {
+    margin: 10px 50px;
 
-    h3 {
-      font-weight: 600;
-      text-transform: uppercase;
-      text-decoration: underline;
+    h1 {
+      margin: 0;
     }
 
     p {
       margin: 5px 0;
       font-size: 16px;
+    }
+
+    .context:before {
+      content: "\25b6";
+      margin-right: 10px;
+    }
+
+    aside {
+      margin: 5px 0;
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    .back {
+      display: inline-block;
+      margin: 10px 0;
+      font-size: 14px;
     }
   }
 
@@ -28,8 +43,12 @@
   }
 
   .steps {
-    width: 90%;
-    margin: 30px auto;
+    margin-left: 40px;
+
+    @media (min-width: 600px) {
+      width: 90%;
+      margin: 30px auto;
+    }
 
     li {
       margin: 75px 0;
