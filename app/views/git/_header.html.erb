@@ -1,0 +1,13 @@
+<a class="back" href="<%= git_index_url %>"></a>
+
+<header>
+  <h1><%= title %></h1>
+
+  <p class="context"><%= context %></p>
+
+  <% if aside %>
+    <aside><%= aside %></aside>
+  <% end %>
+</header>
+
+<%= javascript_include_tag "git" %>
