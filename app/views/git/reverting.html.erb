@@ -1,0 +1,87 @@
+<section class="wrapper git">
+  <%= render "header", {
+    title: "Reverting to an Old Commit",
+    context: "Going back to the way things used to be...",
+    aside: "Disclaimer: There might be a more professional way to do this, but we like our hacky way because it's easier to understand."
+  } %>
+
+  <ol class="summary">
+    <li><a href="#log">git log</a></li>
+    <li><a href="#checkout">git checkout <em>commit-stamp</em></a></li>
+    <li><a href="#checkout-b">git checkout -b <em>new-branch</em></a></li>
+    <li>
+      <a href="#rename-master">git branch -m master <em>old-master</em></a>
+    </li>
+    <li>
+      <a href="#rename-filler">git branch -m <em>new-branch</em> master</a>
+    </li>
+    <li><a href="#delete">(OPTIONAL) git branch -d <em>old-master</em></a></li>
+  </ol>
+
+  <ol class="steps">
+    <li>
+      <h2 id="log">git log</h2>
+      <p>
+        Find the commit you want to rollback to and grab its unique ID.
+      </p>
+
+<pre class="snippet">
+  commit w415369448077ade522bdd668b322170841573e2
+  Author: conz &lt;conz@example.com&gt;
+  Date:   Thu Feb 12 12:45:37 2015 -0500
+
+      Fix index page
+
+  commit 89f3144cdb32dcd3365bcf64f682p145e85f1d66
+  Author: conz &lt;conz@example.com&gt;
+  Date:   Thu Feb 12 12:20:59 2015 -0500
+
+      Add CSS
+
+  commit 099b05a9f4g0bae969be71fc2c7fba4394b2971c
+  Author: conz &lt;conz@example.com&gt;
+  Date:   Thu Feb 12 10:52:46 2015 -0500
+
+      Make nav bar
+</pre>
+
+      <p>
+        Example: If you want everything up to the <code>Add CSS</code> commit, copy <code>89f3144cdb32dcd3365bcf64f682p145e85f1d66</code> to your clipboard (just the first few characters also works! ex: <code>89f3144</code>).
+      </p>
+    </li>
+
+    <li>
+      <h2 id="checkout">git checkout <em>commit-stamp</em></h2>
+      <p>
+        Checkout the commit stamp you copied from the last step. You will receive a message saying you're now on a detached HEAD.
+      </p>
+    </li>
+
+    <li>
+      <h2 id="checkout-b">git checkout -b <em>new-branch</em></h2>
+      <p>Make a new branch for this commit.</p>
+      <p>Example: <code>git checkout -b new_master</code></p>
+    </li>
+
+    <li>
+      <h2 id="rename-master">git branch -m master <em>old-master</em></h2>
+      <p>Rename the master branch.</p>
+      <p>Example: <code>git branch -m master old_master</code></p>
+    </li>
+
+    <li>
+      <h2 id="rename-filler">git branch -m <em>new-branch</em> master</h2>
+      <p>
+        Rename your new branch to master. Now if you run <a href="/git#branch"><code>git branch</code></a>, you'll see that you're on the "master" branch.
+      </p>
+      <p>Example: <code>git branch -m new_master master</code></p>
+    </li>
+
+    <li>
+      <h2 id="delete">git branch -d <em>old-master</em></h2>
+      <p>
+        OPTIONAL. Delete the old master branch. Only do this if you know for sure that you don't want any of the changes on the old master branch.
+      </p>
+    </li>
+  </ol>
+</section>

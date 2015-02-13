@@ -1,10 +1,9 @@
 <section class="wrapper git">
-  <a class="back" href="<%= git_index_url %>"></a>
-
-  <header>
-    <h1>Committing Changes</h1>
-    <p class="context">Pushing to Github 101 :)</p>
-  </header>
+  <%= render "header", {
+    title: "Committing Changes",
+    context: "Pushing to Github 101 :)",
+    aside: nil
+  } %>
 
   <ol class="summary">
     <li><a href="#status">git status</a></li>
@@ -59,5 +58,3 @@
     </li>
   </ol>
 </section>
-
-<%= javascript_include_tag "git" %>

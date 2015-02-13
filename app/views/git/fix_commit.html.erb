@@ -1,15 +1,9 @@
 <section class="wrapper git">
-  <a class="back" href="<%= git_index_url %>"></a>
-
-  <header>
-    <h1>Fixing Commits</h1>
-
-    <p class="context">Altering the contents of your last commit.</p>
-
-    <aside>
-      If you're only trying to change your previous commit message, NOT the files of the commit, see <a href="/git#commit"><code>git commit --amend</code></a>.
-    </aside>
-  </header>
+  <%= render "header", {
+    title: "Fixing Commits",
+    context: "Altering the contents of your last commit.",
+    aside: "If you're only trying to change your previous commit message, NOT the files of the commit, see <a href=\"/git#commit\"><code>git commit --amend</code></a>.".html_safe
+  } %>
 
   <ol class="summary">
     <li><a href="#reset">git reset --soft HEAD~1</a></li>
@@ -58,5 +52,3 @@
     </li>
   </ol>
 </section>
-
-<%= javascript_include_tag "git" %>

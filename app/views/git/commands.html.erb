@@ -1,62 +1,61 @@
 <section class="wrapper git">
-  <header class="git-index">
-    <h1>Git commands</h1>
-    <p class="context">All your basic commands :)</p>
+  <%= render "header", {
+    title: "Git commands",
+    context: "All your basic commands :)",
+    aside: nil
+  } %>
 
-    <form>
-      <input type="search" placeholder="Search commands">
-    </form>
+  <form>
+    <input type="search" placeholder="Search commands">
+  </form>
 
-    <script>
-      $(function () {
-        $("input").on("focus", function () {
-          $(this).addClass("expand").select();
-        });
+  <script>
+    $(function () {
+      $("input").on("focus", function () {
+        $(this).addClass("expand").select();
+      });
 
-        $("input").on("blur", function () {
-          $(this).removeClass("expand");
+      $("input").on("blur", function () {
+        $(this).removeClass("expand");
 
-          if (!$(this).val().length) {
-            $("li").removeClass("hide");
+        if (!$(this).val().length) {
+          $("li").removeClass("hide");
+        }
+      });
+
+      $("input").on("keyup", function () {
+        var query = $(this).val();
+
+        if (query.length < 3) {
+          $("li").removeClass("hide");
+          return;
+        }
+
+        $("li").addClass("hide");
+
+        $("li").each(function () {
+          var queryStr = new RegExp(query, "i");
+
+          if (queryStr.test($(this).text())) {
+            $(this).removeClass("hide");
           }
-        });
-
-        $("input").on("keyup", function () {
-          var query = $(this).val();
-
-          if (query.length < 3) {
-            $("li").removeClass("hide");
-            return;
-          }
-
-          $("li").addClass("hide");
-
-          $("li").each(function () {
-            var queryStr = new RegExp(query);
-
-            if (queryStr.test($(this).text())) {
-              $(this).removeClass("hide");
-            }
-          });
-        });
-
-        $("form").on("submit", function (e) {
-          e.preventDefault();
-
-          $("body").animate({
-            scrollTop: $("li:not(.hide)").first().offset().top
-          });
-        });
-
-        $("a").on("click", function () {
-          var command = $(this).attr("href");
-          $(command).removeClass("hide");
         });
       });
-    </script>
 
-    <a class="back" href="<%= git_index_url %>"></a>
-  </header>
+      $("form").on("submit", function (e) {
+        e.preventDefault();
+
+        $("body").animate({
+          scrollTop: $("li:not(.hide)").first().offset().top
+        });
+      });
+
+      $("a").on("click", function () {
+        var command = $(this).attr("href");
+        $(command).removeClass("hide");
+      });
+    });
+  </script>
 
   <ul class="steps">
     <li id="init">
@@ -114,7 +113,15 @@
       <p>Commit your changes with a message describing the changes.</p>
 
       <h2>git commit --amend -m "<em>new message</em>"</h2>
-      <p>Change the last commit <em>message</em> you made. See <a href="<%= git_url("fix-commit") %>">Fixing Commits</a> on how to change the actual files that are committed.</p>
+      <p>Change the last commit <em>message</em> you made.</p>
+
+      <p>
+        NB: Write in present tense! <code>"Add user auth"</code>, not <code>"Added user auth"</code>.
+      </p>
+
+      <p>
+        See <a href="<%= git_url("fix-commit") %>">Fixing Commits</a> on how to change the actual files that are committed.
+      </p>
     </li>
 
     <li id="push">
@@ -168,6 +175,9 @@
 
       <h2>git branch -m <em>branch-name</em> <em>new-name</em></h2>
       <p>Rename a branch.</p>
+
+      <h2>git branch -d <em>branch-name</em></h2>
+      <p>Delete a branch.</p>
     </li>
 
     <li id="merge">
