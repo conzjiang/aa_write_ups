@@ -1,0 +1,178 @@
+<section class="wrapper git">
+  <header class="git-index">
+    <h1>Git commands</h1>
+    <p class="context">All your basic commands :)</p>
+
+    <form>
+      <input type="search" placeholder="Search commands">
+    </form>
+
+    <script>
+      $(function () {
+        $("input").on("focus", function () {
+          $(this).addClass("expand").select();
+        });
+
+        $("input").on("blur", function () {
+          $(this).removeClass("expand");
+
+          if (!$(this).val().length) {
+            $("li").removeClass("hide");
+          }
+        });
+
+        $("input").on("keyup", function () {
+          var query = $(this).val();
+
+          if (query.length < 3) {
+            $("li").removeClass("hide");
+            return;
+          }
+
+          $("li").addClass("hide");
+
+          $("li").each(function () {
+            var queryStr = new RegExp(query);
+
+            if (queryStr.test($(this).text())) {
+              $(this).removeClass("hide");
+            }
+          });
+        });
+
+        $("form").on("submit", function (e) {
+          e.preventDefault();
+
+          $("body").animate({
+            scrollTop: $("li:not(.hide)").first().offset().top
+          });
+        });
+
+        $("a").on("click", function () {
+          var command = $(this).attr("href");
+          $(command).removeClass("hide");
+        });
+      });
+    </script>
+
+    <a class="back" href="<%= git_index_url %>"></a>
+  </header>
+
+  <ul class="steps">
+    <li id="init">
+      <h2>git init</h2>
+
+      <p>
+        Create .git directory. Always run this command first when starting any project!
+      </p>
+    </li>
+
+    <li id="config">
+      <h2>git config --local user.name <em>You+Partner</em></h2>
+      <h2>git config --local user.email <em>email@email.com</em></h2>
+
+      <p>
+        Configure the local settings of your project to attribute it to you and your pair. Leaving off the <code>--local</code> flag configures it globally for every project on the computer!
+      </p>
+    </li>
+
+    <li id="status">
+      <h2>git status</h2>
+      <p>Check which files have and haven't been <code>git add</code>ed.</p>
+    </li>
+
+    <li id="diff">
+      <h2>git diff</h2>
+      <p>
+        See the differences between the last commit and the files now.
+      </p>
+
+      <h2>git diff <em>path/to/file</em></h2>
+      <p>See the differences of a particular file.</p>
+    </li>
+
+    <li id="add">
+      <h2>git add -A</h2>
+      <p>Add all files (new files and deletions) you want to commit.</p>
+
+      <h2>git add .</h2>
+      <p>Only add the files which have been changed (excludes new files and deletions).</p>
+
+      <h2>git add <em>path/to/file</em></h2>
+      <p>Add one file to be committed.</p>
+    </li>
+
+    <li id="reset-head">
+      <h2>git reset HEAD <em>path/to/file</em></h2>
+      <p>
+        Un-add a file you added but didn't <a href="#commit">commit</a> yet.
+      </p>
+    </li>
+
+    <li id="commit">
+      <h2>git commit -m "<em>message</em>"</h2>
+      <p>Commit your changes with a message describing the changes.</p>
+
+      <h2>git commit --amend -m "<em>new message</em>"</h2>
+      <p>Change the last commit <em>message</em> you made. See <a href="<%= git_url("fix-commit") %>">Fixing Commits</a> on how to change the actual files that are committed.</p>
+    </li>
+
+    <li id="push">
+      <h2>git push <em>remote-name</em> <em>branch-name</em></h2>
+      <p>Push your commits up to Github.</p>
+      <p>Most commonly used: <code>git push origin master</code></p>
+    </li>
+
+    <li id="pull">
+      <h2>git pull <em>remote-name</em> <em>branch-name</em></h2>
+      <p>Pull the commits down from Github to your local repo.</p>
+      <p>
+        Context: You <a href="#push">pushed up your changes</a> from the office computers. You have a local version of that repo on your home computer. Run this command to apply the new changes to your home computer's repo.
+      </p>
+    </li>
+
+    <li id="log">
+      <h2>git log</h2>
+      <p>See your commit history.</p>
+    </li>
+
+    <li id="checkout">
+      <h2>git checkout .</h2>
+      <p>
+        Undo changes made to existing files that haven't been added (leaves new files alone).
+      </p>
+
+      <h2>git checkout <em>path/to/file</em></h2>
+      <p>Undo changes made to a particular file that hasn't been added.</p>
+    </li>
+
+    <li id="checkout-b">
+      <h2>git checkout <em>branch-name</em></h2>
+      <p>Switch to an existing branch.</p>
+
+      <h2>git checkout -b <em>branch-name</em></h2>
+      <p>Create a new branch and switch to it.</p>
+      <p>
+        Equivalent to:
+        <code>git branch <em>branch-name</em></code> +
+        <code>git checkout <em>branch-name</em></code>
+      </p>
+    </li>
+
+    <li id="branch">
+      <h2>git branch</h2>
+      <p>Show the branch you're currently on.</p>
+
+      <h2>git branch <em>branch-name</em></h2>
+      <p>Create a new branch.</p>
+
+      <h2>git branch -m <em>branch-name</em> <em>new-name</em></h2>
+      <p>Rename a branch.</p>
+    </li>
+
+    <li id="merge">
+      <h2>git merge <em>branch</em></h2>
+      <p>Merge the files in [branch] into the current branch.</p>
+    </li>
+  </ul>
+</section>

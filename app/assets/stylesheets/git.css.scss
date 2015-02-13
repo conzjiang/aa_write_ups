@@ -50,29 +50,21 @@
     }
   }
 
-  header.git-index {
-    h1 {
-      display: inline-block;
-    }
+  input {
+    display: block;
+    width: 300px;
+    margin: 30px auto;
+    padding: 15px 10px;
+    font-size: 24px;
+    color: #666;
+    background: #eee;
+    border-radius: 5px;
+    transition: width 0.5s;
+  }
 
-    form {
-      display: inline-block;
-      margin: 0 50px;
-      vertical-align: text-bottom;
-    }
-
-    input {
-      width: auto;
-      max-width: 300px;
-      padding: 10px 5px;
-      background: #eee;
-      border-radius: 5px;
-      transition: width 0.5s;
-    }
-
-    input.expand {
-      width: 300px;
-    }
+  input.expand {
+    width: 500px;
+    color: #000;
   }
 
   .summary {

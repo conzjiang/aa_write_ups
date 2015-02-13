@@ -1,115 +1,12 @@
 <section class="wrapper git">
   <header class="git-index">
-    <h1>Git</h1>
-
-    <form>
-      <input type="search" placeholder="Search">
-    </form>
+    <h1>Doing things with Git</h1>
   </header>
 
-  <nav class="summary">
-    <h3>Quick Links</h3>
-    <ul>
-      <li><a href="<%= git_url("committing") %>">Committing changes</a></li>
-      <li><a href="<%= git_url("fix-commit") %>">Fixing commits</a></li>
-      <li><a href="#">Reverting to an old commit</a></li>
-    </ul>
-  </nav>
-
-  <ul class="steps">
-    <li id="init">
-      <h2>git init</h2>
-
-      <p>
-        Create .git directory. Always run this command first when starting any project!
-      </p>
-    </li>
-
-    <li id="config">
-      <h2>git config --local user.name <em>You+Partner</em></h2>
-      <h2>git config --local user.email <em>email@email.com</em></h2>
-
-      <p>
-        Configure the local settings of your project to attribute it to you and your pair. Leaving off the <code>--local</code> flag configures it globally for every project on the computer!
-      </p>
-    </li>
-
-    <li id="status">
-      <h2>git status</h2>
-      <p>Check which files have and haven't been <code>git add</code>ed.</p>
-    </li>
-
-    <li id="diff">
-      <h2>git diff</h2>
-      <p>
-        See the differences between the last commit and the files now.
-      </p>
-
-      <h2>git diff <em>path/to/file</em></h2>
-      <p>See the differences of a particular file.</p>
-    </li>
-
-    <li id="add">
-      <h2>git add -A</h2>
-      <p>Add all files (new files and deletions) you want to commit.</p>
-
-      <h2>git add .</h2>
-      <p>Only add the files which have been changed (excludes new files and deletions).</p>
-
-      <h2>git add <em>path/to/file</em></h2>
-      <p>Add one file to be committed.</p>
-    </li>
-
-    <li id="commit">
-      <h2>git commit -m "<em>message</em>"</h2>
-      <p>Commit your changes with a message describing the changes.</p>
-
-      <h2>git commit --amend -m "<em>new message</em>"</h2>
-      <p>Change the last commit <em>message</em> you made. See <a href="<%= git_url("fix-commit") %>">Fixing Commits</a> on how to change the actual files that are committed.</p>
-    </li>
-
-    <li id="reset-head">
-      <h2>git reset HEAD <em>path/to/file</em></h2>
-      <p>Un-add a file you added but didn't commit yet.</p>
-    </li>
-
-    <li id="checkout">
-      <h2>git checkout .</h2>
-      <p>
-        Undo changes made to existing files that haven't been added (leaves new files alone).
-      </p>
-
-      <h2>git checkout <em>path/to/file</em></h2>
-      <p>Undo changes made to a particular file that hasn't been added.</p>
-    </li>
-
-    <li id="checkout-b">
-      <h2>git checkout <em>branch-name</em></h2>
-      <p>Switch to an existing branch.</p>
-
-      <h2>git checkout -b <em>branch-name</em></h2>
-      <p>Create a new branch and switch to it.</p>
-      <p>
-        Equivalent to:
-        <code>git branch <em>branch-name</em></code> +
-        <code>git checkout <em>branch-name</em></code>
-      </p>
-    </li>
-
-    <li id="branch">
-      <h2>git branch</h2>
-      <p>Show the branch you're currently on.</p>
-
-      <h2>git branch <em>branch-name</em></h2>
-      <p>Create a new branch.</p>
-
-      <h2>git branch -m <em>branch-name</em> <em>new-name</em></h2>
-      <p>Rename a branch.</p>
-    </li>
-
-    <li id="merge">
-      <h2>git merge <em>branch</em></h2>
-      <p>Merge the files in [branch] into the current branch.</p>
-    </li>
+  <ul class="summary">
+    <li><a href="<%= git_url("commands") %>">Commands</a></li>
+    <li><a href="<%= git_url("committing") %>">Committing changes</a></li>
+    <li><a href="<%= git_url("fix-commit") %>">Fixing commits</a></li>
+    <li><a href="#">Reverting to an old commit</a></li>
   </ul>
 </section>
