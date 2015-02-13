@@ -132,27 +132,19 @@
 
 @-webkit-keyframes highlight {
   0% {
-    transition: background 0.5s;
     background: none;
   }
 
-  25% {
-    background: rgb(255, 255, 208);
-  }
-
   50% {
-    background: yellow;
-  }
-
-  75% {
-    background: rgb(254, 254, 149);
+    background: rgb(255, 255, 90);
   }
 
   100% {
-    background: rgb(255, 255, 208);
+    background: none;
   }
 }
 
 .highlight {
+  transition: background 1s linear;
   -webkit-animation: highlight 1s;
 }
