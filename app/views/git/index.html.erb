@@ -1,20 +1,20 @@
 <section class="wrapper git">
-  <h1>Git</h1>
+  <header class="git-index">
+    <h1>Git</h1>
 
-  <section class="quick-links">
+    <form>
+      <input type="search" placeholder="Search">
+    </form>
+  </header>
+
+  <nav class="summary">
     <h3>Quick Links</h3>
     <ul>
       <li><a href="<%= git_url("committing") %>">Committing changes</a></li>
       <li><a href="<%= git_url("fix-commit") %>">Fixing commits</a></li>
       <li><a href="#">Reverting to an old commit</a></li>
     </ul>
-  </section>
-
-
-  <form>
-    <input type="text">
-    <button>Search</button>
-  </form>
+  </nav>
 
   <ul class="steps">
     <li id="init">
